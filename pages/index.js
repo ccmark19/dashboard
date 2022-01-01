@@ -2,27 +2,32 @@ import { useState } from "react";
 import Map from "../components/map/Map";
 import Profile from "../components/profile/Profile";
 import Sidebar from "../components/sidebar/Sidebar";
+import About from "../components/about/About";
 
 export default function Home() {
   const [selectScreen, setSelectScreen] = useState("Profile");
   const sideItems = {
     Profile: Profile,
     Map: Map,
-    Sidebar: Sidebar,
+    About: About,
   };
   return (
-    <div>
-      <div>
-        <p className="text-3xl font-bold underline bg-orange-700">
-          Hello world!
-        </p>
-        <ul>
-          {Object.entries(sideItems).map((item, index) => (
-            <li key={index}>{item}</li>
-          ))}
-        </ul>
-      </div>
-      {/* <div>{sideItems.selectScreen}</div> */}
+    <div className="flex">
+      <aside className="w-1/6">
+        <Sidebar
+          sideItems={sideItems}
+          setSelectScreen={(txt) => {
+            setSelectScreen(txt);
+          }}
+        />
+      </aside>
+      <main className="flex-auto">
+        {Object.keys(sideItems).map(
+          (item) =>
+            item == selectScreen ? console.log(true, item, sideItems) : null
+          // item == selectScreen ? <div key={index}>{sideItems[item]}</div> : null
+        )}
+      </main>
     </div>
   );
 }
