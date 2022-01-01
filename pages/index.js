@@ -22,11 +22,10 @@ export default function Home() {
         />
       </aside>
       <main className="flex-auto">
-        {Object.keys(sideItems).map(
-          (item) =>
-            item == selectScreen ? console.log(true, item, sideItems) : null
-          // item == selectScreen ? <div key={index}>{sideItems[item]}</div> : null
-        )}
+        {Object.keys(sideItems).map((Item) => {
+          // main content area bug, should be able to return each itme based on select screen
+          return Item == selectScreen ? <Item /> : null;
+        })}
       </main>
     </div>
   );
