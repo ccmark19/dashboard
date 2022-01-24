@@ -1,7 +1,5 @@
 const sidebar = ({allScreens, setSelectedScreen}) => {
   const sideBarButtonClick = (data) => {
-    console.log('data->', data);
-
     setSelectedScreen(data);
   };
   const icons = {

@@ -1,15 +1,15 @@
 import {useState} from 'react';
-import Map from '../components/map/map';
-import Profile from '../components/profile/profile';
+import Map from '../components/mainScreen/map/map';
+import Profile from '../components/mainScreen/profile/profile';
 import Sidebar from '../components/sidebar/Sidebar';
-import About from '../components/about/about';
+import About from '../components/mainScreen/about/about';
 
 export default function Home() {
   const [selectedScreen, setSelectedScreen] = useState('Profile');
   const allScreens = [{Profile: Profile}, {Map: Map}, {About: About}];
   return (
     <div className="flex">
-      <aside className="w-1/6">
+      <aside className="h-screen">
         <Sidebar
           allScreens={allScreens}
           setSelectedScreen={(txt) => {
@@ -17,18 +17,13 @@ export default function Home() {
           }}
         />
       </aside>
-      <main className="flex-auto">
+      <main className="w-full">
         {allScreens.map((item) => {
           let Data = item[selectedScreen];
           if (Data) {
             return <Data />;
           }
         })}
-        {/* {Object.keys(allScreens).map((Item) => {
-          // main content area bug, should be able to return each itme based on select screen
-          return Item == selectedScreen ? <Item /> : null;
-        })} */}
-        {/* <Map /> */}
       </main>
     </div>
   );
