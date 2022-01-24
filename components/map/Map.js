@@ -1,9 +1,9 @@
-import { useRef, useEffect, useState, useCallback } from "react";
+import {useRef, useEffect, useState, useCallback} from 'react';
 // import hexDataset from "../../src/datasets/ne_110m_admin_0_countries.geojson";
 
-const Map = () => {
+const map = () => {
   let Globe = () => null;
-  if (typeof window !== "undefined") Globe = require("react-globe.gl").default;
+  if (typeof window !== 'undefined') Globe = require('react-globe.gl').default;
 
   // const [countries, setCountries] = useState({ features: [] });
   const globeEl = useRef();
@@ -13,7 +13,7 @@ const Map = () => {
     startLng: (Math.random() - 0.5) * 360,
     endLat: (Math.random() - 0.5) * 180,
     endLng: (Math.random() - 0.5) * 360,
-    color: "#d74aab",
+    color: '#d74aab',
   }));
 
   useEffect(() => {
@@ -28,7 +28,7 @@ const Map = () => {
       globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
       backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
       arcsData={arcsData}
-      arcColor={"color"}
+      arcColor={'color'}
       arcDashGap={2}
       arcDashAnimateTime={3000}
       arcsTransitionDuration={3000}
@@ -37,4 +37,4 @@ const Map = () => {
   );
 };
 
-export default Map;
+export default map;

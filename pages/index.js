@@ -1,32 +1,34 @@
-import { useState } from "react";
-import Map from "../components/map/Map";
-import Profile from "../components/profile/Profile";
-import Sidebar from "../components/sidebar/Sidebar";
-import About from "../components/about/About";
+import {useState} from 'react';
+import Map from '../components/map/map';
+import Profile from '../components/profile/profile';
+import Sidebar from '../components/sidebar/Sidebar';
+import About from '../components/about/about';
 
 export default function Home() {
-  const [selectScreen, setSelectScreen] = useState("Map");
-  const sideItems = {
-    Profile: Profile,
-    Map: Map,
-    About: About,
-  };
+  const [selectedScreen, setSelectedScreen] = useState('Profile');
+  const allScreens = [{Profile: Profile}, {Map: Map}, {About: About}];
   return (
     <div className="flex">
       <aside className="w-1/6">
         <Sidebar
-          sideItems={sideItems}
-          setSelectScreen={(txt) => {
-            setSelectScreen(txt);
+          allScreens={allScreens}
+          setSelectedScreen={(txt) => {
+            setSelectedScreen(txt);
           }}
         />
       </aside>
       <main className="flex-auto">
-        {/* {Object.keys(sideItems).map((Item) => {
+        {allScreens.map((item) => {
+          let Data = item[selectedScreen];
+          if (Data) {
+            return <Data />;
+          }
+        })}
+        {/* {Object.keys(allScreens).map((Item) => {
           // main content area bug, should be able to return each itme based on select screen
-          return Item == selectScreen ? <Item /> : null;
+          return Item == selectedScreen ? <Item /> : null;
         })} */}
-        <Map />
+        {/* <Map /> */}
       </main>
     </div>
   );

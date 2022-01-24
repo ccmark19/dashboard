@@ -1,5 +1,5 @@
-const Profile = () => {
+const profile = () => {
   return <div>profile body</div>;
 };
 
-export default Profile;
+export default profile;
