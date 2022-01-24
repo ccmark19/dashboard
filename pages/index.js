@@ -5,7 +5,7 @@ import Sidebar from "../components/sidebar/Sidebar";
 import About from "../components/about/About";
 
 export default function Home() {
-  const [selectScreen, setSelectScreen] = useState("Profile");
+  const [selectScreen, setSelectScreen] = useState("Map");
   const sideItems = {
     Profile: Profile,
     Map: Map,
@@ -22,10 +22,11 @@ export default function Home() {
         />
       </aside>
       <main className="flex-auto">
-        {Object.keys(sideItems).map((Item) => {
+        {/* {Object.keys(sideItems).map((Item) => {
           // main content area bug, should be able to return each itme based on select screen
           return Item == selectScreen ? <Item /> : null;
-        })}
+        })} */}
+        <Map />
       </main>
     </div>
   );
