@@ -3,7 +3,7 @@ import APIPrepCredential from './APIPrepCredential';
 const httpCalls = async (query_type) => {
   let API_params = APIPrepCredential();
   let api_suffix;
-
+  let percentage = 0;
   switch (query_type) {
     case 'login':
     case 'orders':
@@ -42,16 +42,20 @@ const httpCalls = async (query_type) => {
   formdata.append('query_type', query_type);
   try {
     const config = {
-      onUploadProgress: (progressEvent) => console.log(progressEvent.loaded),
+      onUploadProgress: (progressEvent) => {
+        const {loaded, total} = progressEvent;
+        percent = Math.floor((loaded * 100) / total);
+        console.log(`${loaded}kb of ${total}kb | ${percent}%`); // just to see whats happening in the console
+      },
     };
     const response = await axios({
       method: 'post',
       url: API,
       data: formdata,
+      config,
       headers: {
         'Content-Type': `multipart/form-data`,
       },
-      config,
     });
     return response.data;
   } catch (error) {

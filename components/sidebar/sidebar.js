@@ -1,4 +1,6 @@
+import {useState} from 'react';
 const sidebar = ({allScreens, setSelectedScreen}) => {
+  const [showSidebar, setShowSidebar] = useState(false);
   const sideBarButtonClick = (data) => {
     setSelectedScreen(data);
   };
@@ -11,42 +13,76 @@ const sidebar = ({allScreens, setSelectedScreen}) => {
   };
 
   return (
-    <>
-      <div className="rounded-lg shadow bg-base-200 drawer h-full p-1 bg-gradient-to-b from-green-400 to-blue-500">
-        <div className="drawer-side bg-base-100 rounded-lg">
-          <ul className="menu p-4 overflow-y-auto w-80 bg-base-100 text-base-content rounded-lg">
-            {allScreens.map((item, index) => {
-              let temp = Object.keys(item)[0];
-              return (
-                <li
-                  key={index}
-                  type="button"
-                  onClick={() => sideBarButtonClick(temp)}>
-                  <a>
-                    <span className="mr-3">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-6 w-6"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d={icons[item]}
-                        />
-                      </svg>
-                    </span>
-                    {temp}
-                  </a>
-                </li>
-              );
-            })}
-          </ul>
-        </div>
-      </div>
-    </>
+    <div>
+      {showSidebar ? (
+        <button
+          className="bg-green1-p000 text-green2-p500 rounded-lg flex text-4xl items-center cursor-pointer fixed left-10 top-6 z-50"
+          onClick={() => setShowSidebar(!showSidebar)}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            className="h-16 w-16"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor">
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M6 18L18 6M6 6l12 12"
+            />
+          </svg>
+        </button>
+      ) : (
+        <svg
+          onClick={() => setShowSidebar(!showSidebar)}
+          xmlns="http://www.w3.org/2000/svg"
+          className="bg-green1-p000 text-green2-p500 rounded-lg h-16 w-16 fixed z-30 flex items-center cursor-pointer left-10 top-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor">
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+      )}
+      <ul
+        className={`top-0 left-0 p-10 text-white fixed h-full z-40  ease-in-out duration-300 bg-blue1-n625  ${
+          showSidebar ? 'translate-x-0 ' : '-translate-x-full'
+        }`}>
+        {allScreens.map((item, index) => {
+          let temp = Object.keys(item)[0];
+          return (
+            <li
+              key={index}
+              type="button"
+              className="hover:bg-blue1-p125 rounded-md p-3 mt-20 text-4xl font-semibold text-white bg-yellow-600 transition ease-in-out hover:-translate-y-1  hover:bg-indigo-500 duration-300"
+              onClick={() => sideBarButtonClick(temp)}>
+              <a className="inline-flex items-center">
+                <span className="mr-3">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    className="h-6 w-6"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor">
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d={icons[temp]}
+                    />
+                  </svg>
+                </span>
+                {temp}
+              </a>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
   );
 };
 

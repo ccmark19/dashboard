@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import httpCalls from '../../commonFunction/httpCalls';
+import Loading from '../../commonFunction/loading';
 const profile = () => {
   const [profileRes, setProfileRes] = useState();
   const API_Route_Profile = 'metrics/business_info';
@@ -18,12 +19,7 @@ const profile = () => {
 
   return (
     <>
-      <p> test content loding progress</p>
-      <div className="w-full bg-gray-200 rounded-full h-2.5 dark:bg-gray-700 mb-5">
-        <div
-          className="bg-indigo-600 h-2.5 rounded-full"
-          style={{width: '45%'}}></div>
-      </div>
+      {profileRes ? null : <Loading />}
       <div className="grid grid-cols-4 gap-4">
         {profileRes != null
           ? Object.keys(profileRes).map((item, index) => {
