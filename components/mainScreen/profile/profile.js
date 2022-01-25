@@ -20,15 +20,15 @@ const profile = () => {
   return (
     <>
       {profileRes ? null : <Loading />}
-      <div className="grid grid-cols-4 gap-4">
+      <div className="grid grid-cols-4 gap-4 m-5">
         {profileRes != null
           ? Object.keys(profileRes).map((item, index) => {
               return item != null ? (
                 <div key={index} className="shadow stats">
                   {typeof item == 'string' ? (
-                    <div className="stat rounded-lg">
-                      <div className="stat-title">{item}</div>
-                      <div className="stat-value row-span-3">
+                    <div className="stat rounded-lg bg-grey1-1300">
+                      <div className="stat-title text-white">{item}</div>
+                      <div className="stat-value row-span-3 text-white">
                         {typeof profileRes[item] == 'string'
                           ? profileRes[item]
                           : 'not string'}

@@ -1,6 +1,6 @@
 const loading = () => {
   return (
-    <div class="bg-indigo-500 flex items-center justify-center text-indigo-50 font-semibold p-4 rounded">
+    <div class="bg-pink1-500 flex items-center justify-center text-indigo-50 font-semibold p-4">
       <svg
         class="animate-spin h-5 w-5 mr-3"
         xmlns="http://www.w3.org/2000/svg"
