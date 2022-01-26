@@ -92,8 +92,8 @@ const sidebar = ({
         </div>
         <div className="bottom-0 whitespace-normal truncate max-w-xs flex flex-col items-center">
           <hr className="w-full text-blue-600 h-3 mb-5" />
-          <div class="avatar">
-            <div class="mb-3 w-24 h-24 mask mask-squircle ">
+          <div className="avatar">
+            <div className="mb-3 w-24 h-24 mask mask-squircle ">
               <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png" />
             </div>
           </div>
