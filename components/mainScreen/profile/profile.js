@@ -34,9 +34,9 @@ const profile = () => {
                     layout_item[api_res_item] != undefined
                   ) {
                     return (
-                      <div className="bg-grey1-1300 rounded px-5 py-8 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:bg-grey1-1000 duration-300 truncate">
+                      <div className="item-div overflow-hidden hover:overflow-clip whitespace-nowrap hover:whitespace-normal hover:break-all item-div bg-grey1-1300 rounded px-5 py-8 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:bg-grey1-1400 hover:text-grey1-100 hover:border-4 duration-300">
                         <div>{layout_item[api_res_item]}</div>
-                        <div className="text-5xl font-extrabold truncate hover:text-clip hover:whitespace-nowrap">
+                        <div className="item-text">
                           {business_info_res[api_res_item]}
                         </div>
                       </div>

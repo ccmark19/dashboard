@@ -17,10 +17,10 @@ const sidebar = ({
   };
 
   return (
-    <div className="h-full bg-blue1-1000">
+    <div className="h-full bg-grey1-1500">
       {showSidebar ? (
         <button
-          className="bg-green1-900 text-green1-500 rounded-lg flex text-4xl items-center cursor-pointer fixed left-[1.5em] top-6 z-50"
+          className="bg-green1-600 text-green1-1200 rounded-lg flex text-4xl items-center cursor-pointer fixed left-[1.5em] top-6 z-50"
           onClick={() => setShowSidebar(!showSidebar)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +40,7 @@ const sidebar = ({
         <svg
           onClick={() => setShowSidebar(!showSidebar)}
           xmlns="http://www.w3.org/2000/svg"
-          className="bg-green1-900 text-green1-500 rounded-lg h-16 w-16 fixed z-30 flex items-center cursor-pointer left-[3.35em] top-6"
+          className="bg-green1-600 text-green1-1200 rounded-lg h-16 w-16 fixed z-30 flex items-center cursor-pointer left-[3.35em] top-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -53,11 +53,12 @@ const sidebar = ({
         </svg>
       )}
       <div
-        className={`top-0 left-0 p-10 text-white fixed h-full z-40  ease-in-out duration-300 justify-between flex flex-col ${
+        className={`top-0 left-0 p-10 text-white fixed h-full z-40 justify-between flex flex-col ${
           showSidebar ? 'translate-x-0 ' : '-translate-x-full'
-        }`}>
+        }`}
+        style={{width: '19.5rem'}}>
         <div className="mt-20 ">
-          <hr className="w-full text-grey1-500 h-3 mb-5" />
+          <hr className="text-grey1-500 h-3 mb-5" />
           <ul>
             {allScreens.map((item, index) => {
               let temp = Object.keys(item)[0];
@@ -65,7 +66,7 @@ const sidebar = ({
                 <li
                   key={index}
                   type="button"
-                  className="rounded-md p-3 text-xl font-semibold text-white transition ease-in-out hover:text-blue1-1200 hover:-translate-y-1 hover:bg-blue1-100  duration-150"
+                  className="rounded-md p-3 text-xl font-semibold text-white transition ease-in-out hover:text-blue1-1200 hover:-translate-y-1 hover:bg-blue1-100 duration-300"
                   onClick={() => sideBarButtonClick(temp)}>
                   <a className="inline-flex items-center">
                     <span className="mr-3">

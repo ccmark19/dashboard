@@ -12,7 +12,7 @@ export default function Home() {
     <div className="flex">
       <aside
         className={`h-screen showSidebar transition ease-in-out delay-150 ${
-          showSidebar ? 'w-[14rem]' : null
+          showSidebar ? 'w-[25.5rem]' : null
         }`}>
         <Sidebar
           allScreens={allScreens}

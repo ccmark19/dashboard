@@ -9,12 +9,22 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-
-a {
-  color: inherit;
-  text-decoration: none;
+.item-text {
+  font-size: 3rem;
+  line-height: 1;
+  font-weight: 800;
+  -webkit-transition: all 0.5s;
+  -moz-transition: all 0.5s;
+  -o-transition: all 0.5s;
+  transition: all 0.5s;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-
-* {
-  box-sizing: border-box;
+.item-div:hover .item-text {
+  font-size: 1.75rem;
+  font-weight: 100;
+  white-space: normal;
+  text-overflow: clip;
+  transition: font-size margin-right 0.5s ease-in-out 0.5s;
 }
