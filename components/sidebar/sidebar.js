@@ -17,10 +17,10 @@ const sidebar = ({
   };
 
   return (
-    <div className="h-full bg-grey1-1500">
+    <div className="h-full bg-grey1-1400" style={{width: 'inherit'}}>
       {showSidebar ? (
         <button
-          className="bg-green1-600 text-green1-1200 rounded-lg flex text-4xl items-center cursor-pointer fixed left-[1.5em] top-6 z-50"
+          className="bg-purple1-700 text-grey1-100 rounded-lg flex text-4xl items-center cursor-pointer fixed left-[1.5em] top-6 z-50"
           onClick={() => setShowSidebar(!showSidebar)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -40,7 +40,7 @@ const sidebar = ({
         <svg
           onClick={() => setShowSidebar(!showSidebar)}
           xmlns="http://www.w3.org/2000/svg"
-          className="bg-green1-600 text-green1-1200 rounded-lg h-16 w-16 fixed z-30 flex items-center cursor-pointer left-[3.35em] top-6"
+          className="bg-purple1-700 text-grey1-100 rounded-lg h-16 w-16 fixed z-30 flex items-center cursor-pointer left-[3.35em] top-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -56,9 +56,9 @@ const sidebar = ({
         className={`top-0 left-0 p-10 text-white fixed h-full z-40 justify-between flex flex-col ${
           showSidebar ? 'translate-x-0 ' : '-translate-x-full'
         }`}
-        style={{width: '19.5rem'}}>
+        style={{width: 'inherit'}}>
         <div className="mt-20 ">
-          <hr className="text-grey1-500 h-3 mb-5" />
+          <hr className="text-grey1-1200 h-3 mb-5" />
           <ul>
             {allScreens.map((item, index) => {
               let temp = Object.keys(item)[0];
@@ -92,7 +92,7 @@ const sidebar = ({
           </ul>
         </div>
         <div className="bottom-0 whitespace-normal truncate max-w-xs flex flex-col items-center">
-          <hr className="w-full text-blue-600 h-3 mb-5" />
+          <hr className="w-full text-grey1-1200 h-3 mb-5" />
           <div className="avatar">
             <div className="mb-3 w-24 h-24 mask mask-squircle ">
               <img src="http://daisyui.com/tailwind-css-component-profile-1@94w.png" />

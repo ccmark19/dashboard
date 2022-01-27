@@ -12,7 +12,7 @@ export default function Home() {
     <div className="flex">
       <aside
         className={`h-screen showSidebar transition ease-in-out delay-150 ${
-          showSidebar ? 'w-[25.5rem]' : null
+          showSidebar ? 'w-[20rem]' : null
         }`}>
         <Sidebar
           allScreens={allScreens}
@@ -25,7 +25,7 @@ export default function Home() {
           }}
         />
       </aside>
-      <main className="w-full h-screen showSidebar transition ease-in-out delay-150 bg-grey1-1400">
+      <main className="w-full h-screen showSidebar transition ease-in-out delay-150 bg-black">
         {allScreens.map((item, index) => {
           let Data = item[selectedScreen];
           if (Data) {

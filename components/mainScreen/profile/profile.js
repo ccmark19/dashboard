@@ -24,7 +24,7 @@ const profile = () => {
   return (
     <>
       {business_info_res ? (
-        <div className="mt-28 mx-5 p-5 rounded-lg bg-grey1-1500 grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 text-white gap-4">
+        <div className="mt-28 mx-5 p-5 rounded-lg grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 text-white gap-4">
           {business_info_res != null
             ? Object.keys(business_info_res).map((api_res_item, index) => {
                 return layoutFields.map((layout_item) => {
@@ -34,7 +34,7 @@ const profile = () => {
                     layout_item[api_res_item] != undefined
                   ) {
                     return (
-                      <div className="item-div overflow-hidden hover:overflow-clip whitespace-nowrap hover:whitespace-normal hover:break-all item-div bg-grey1-1300 rounded px-5 py-8 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:bg-grey1-1400 hover:text-grey1-100 hover:border-4 duration-300">
+                      <div className="item-div overflow-hidden hover:overflow-clip whitespace-nowrap hover:whitespace-normal hover:break-all item-div bg-grey1-1400 rounded px-5 py-8 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:bg-grey1-1400 hover:text-grey1-100 hover:border-4 duration-300">
                         <div>{layout_item[api_res_item]}</div>
                         <div className="item-text">
                           {business_info_res[api_res_item]}
