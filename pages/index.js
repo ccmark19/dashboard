@@ -3,10 +3,16 @@ import Map from '../components/mainScreen/map/map';
 import Profile from '../components/mainScreen/profile/profile';
 import Sidebar from '../components/sidebar/sidebar';
 import About from '../components/mainScreen/about/about';
+import Financial from '../components/mainScreen/financials/financials';
 
 export default function Home() {
   const [selectedScreen, setSelectedScreen] = useState('Profile');
-  const allScreens = [{Profile: Profile}, {Map: Map}, {About: About}];
+  const allScreens = [
+    {Profile: Profile},
+    {Map: Map},
+    {About: About},
+    {Financial: Financial},
+  ];
   const [showSidebar, setShowSidebar] = useState(false);
   return (
     <div className="flex">
@@ -25,7 +31,7 @@ export default function Home() {
           }}
         />
       </aside>
-      <main className="w-full h-screen showSidebar transition ease-in-out delay-150 bg-black">
+      <main className="w-full h-screen showSidebar transition ease-in-out delay-150 bg-[#101010]">
         {allScreens.map((item, index) => {
           let Data = item[selectedScreen];
           if (Data) {

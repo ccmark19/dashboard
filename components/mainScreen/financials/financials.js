@@ -2,9 +2,9 @@ import {useState, useEffect} from 'react';
 import httpCalls from '../../commonFunction/httpCalls';
 import Loading from '../../commonFunction/loading';
 import {Register} from '../../../src/store/Register';
-const profile = () => {
+const financial = () => {
   const API_Route_Profile = 'metrics/business_info';
-  const layoutFields = Register.useState((s) => s.layoutFields.profile);
+  const layoutFields = Register.useState((s) => s.layoutFields.financials);
   const business_info_res = Register.useState((s) => s.business_info_res);
   useEffect(() => {
     const fetchData = async () => {
@@ -48,4 +48,4 @@ const profile = () => {
   );
 };
 
-export default profile;
+export default financial;
