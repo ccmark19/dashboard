@@ -68,6 +68,21 @@ const sidebar = ({
         />
       </svg>
     ),
+    Activities: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M13 10V3L4 14h7v7l9-11h-7z"
+        />
+      </svg>
+    ),
     Binary: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -145,17 +160,47 @@ const sidebar = ({
           <hr className="text-grey1-1200 h-3 mb-5" />
           <ul>
             {allScreens.map((item, index) => {
-              let temp = Object.keys(item)[0];
+              let tempKey = Object.keys(item)[0];
+              let tempValue = Object.values(item)[0];
               return (
                 <li
                   key={index}
                   type="button"
-                  className="rounded-md p-3 text-xl font-semibold text-white transition ease-in-out hover:text-blue1-1200 hover:-translate-y-1 hover:bg-blue1-100 duration-300"
-                  onClick={() => sideBarButtonClick(temp)}>
-                  <a className="inline-flex items-center">
-                    <span className="mr-3">{icons[temp]}</span>
-                    {temp}
-                  </a>
+                  className={`${
+                    tempValue
+                      ? 'hover:bg-blue1-100 p-3 rounded-md text-xl font-semibold text-white transition ease-in-out hover:text-grey1-1400 hover:-translate-y-1 duration-300'
+                      : 'dropdown dropdown-end hover:bg-grey1-1400 hover:text-grey1-1400 p-0 '
+                  }`}
+                  onClick={() => sideBarButtonClick(tempKey)}>
+                  {typeof tempValue == 'object' ? (
+                    <>
+                      <ul className="menu">
+                        <li>
+                          <a>{tempKey}</a>
+                          <ul className="menu invisible">
+                            {Object.values(tempValue).map((subItem, index) => {
+                              let subItemKey = Object.keys(subItem)[0];
+                              return (
+                                <li key={index}>
+                                  <a className="inline-flex items-center">
+                                    <span className="mr-3">
+                                      {icons[subItemKey]}
+                                    </span>
+                                    {subItemKey}
+                                  </a>
+                                </li>
+                              );
+                            })}
+                          </ul>
+                        </li>
+                      </ul>
+                    </>
+                  ) : (
+                    <a className="inline-flex items-center" key={index}>
+                      <span className="mr-3">{icons[tempKey]}</span>
+                      {tempKey}
+                    </a>
+                  )}
                 </li>
               );
             })}

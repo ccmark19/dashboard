@@ -6,17 +6,25 @@ import Activity from '../components/mainScreen/activity/activity';
 import Financial from '../components/mainScreen/financial/financial';
 import Downline from '../components/mainScreen/downline/downline';
 import Binary from '../components/mainScreen/binary/binary';
+import Login from '../components/mainScreen/activity/login';
+import Order from '../components/mainScreen/activity/order';
+import Launch from '../components/mainScreen/activity/launch';
+import {data} from 'autoprefixer';
 
 export default function Home() {
   const [selectedScreen, setSelectedScreen] = useState('Profile');
   const allScreens = [
     {Profile: Profile},
     {Activity: Activity},
+    {
+      Activities: [{Login: Login}, {Order: Order}, {Launch: Launch}],
+    },
     {Financial: Financial},
     {Downline: Downline},
     {Binary: Binary},
     {Map: Map},
   ];
+
   const [showSidebar, setShowSidebar] = useState(false);
   return (
     <div className="flex">
