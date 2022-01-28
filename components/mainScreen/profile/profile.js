@@ -36,7 +36,9 @@ const profile = () => {
                                     bg-grey1-1400 rounded px-5 py-8 
                                     transition ease-in-out delay-50                               
                                     duration-300 
-                                    h-fit                                    
+                                    h-fit
+                                    hover:break-all
+                                    auto-rows-min                                                       
                                     hover:-translate-y-1 hover:scale-110 hover:bg-grey1-1300"
                       >
                         {/* hover:overflow-clip whitespace-nowrap

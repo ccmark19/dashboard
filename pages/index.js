@@ -1,25 +1,27 @@
-import {useState} from 'react';
-import Map from '../components/mainScreen/map/map';
-import Profile from '../components/mainScreen/profile/profile';
-import Sidebar from '../components/sidebar/sidebar';
-import About from '../components/mainScreen/about/about';
-import Financial from '../components/mainScreen/financials/financials';
-
+import { useState } from "react";
+import Map from "../components/mainScreen/map/map";
+import Profile from "../components/mainScreen/profile/profile";
+import Sidebar from "../components/sidebar/sidebar";
+import About from "../components/mainScreen/about/about";
+import Financial from "../components/mainScreen/financials/financials";
+import Login from "../components/mainScreen/activities/login";
 export default function Home() {
-  const [selectedScreen, setSelectedScreen] = useState('Profile');
+  const [selectedScreen, setSelectedScreen] = useState("Profile");
   const allScreens = [
-    {Profile: Profile},
-    {Map: Map},
-    {About: About},
-    {Financial: Financial},
+    { Profile: Profile },
+    { Map: Map },
+    { About: About },
+    { Financial: Financial },
+    { Login: Login },
   ];
   const [showSidebar, setShowSidebar] = useState(false);
   return (
     <div className="flex">
       <aside
         className={`h-screen showSidebar transition ease-in-out delay-150 ${
-          showSidebar ? 'w-[20rem]' : null
-        }`}>
+          showSidebar ? "w-[20rem]" : null
+        }`}
+      >
         <Sidebar
           allScreens={allScreens}
           setSelectedScreen={(txt) => {
