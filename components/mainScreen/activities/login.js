@@ -5,7 +5,6 @@ import httpCalls from "../../commonFunction/httpCalls";
 import { Chart as ChartJS } from "chart.js/auto";
 import { Chart } from "react-chartjs-2";
 const login = () => {
-  //   Chart.register(CategoryScale);
   const [loginRes, setLoginRes] = useState([]);
   const API_Route_Profile = "metrics";
   const layoutFields = Register.useState((s) => s.layoutFields.profile);
