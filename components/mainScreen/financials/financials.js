@@ -1,9 +1,9 @@
-import {useState, useEffect} from 'react';
-import httpCalls from '../../commonFunction/httpCalls';
-import Loading from '../../commonFunction/loading';
-import {Register} from '../../../src/store/Register';
+import { useState, useEffect } from "react";
+import httpCalls from "../../commonFunction/httpCalls";
+import Loading from "../../commonFunction/loading";
+import { Register } from "../../../src/store/Register";
 const financial = () => {
-  const API_Route_Profile = 'metrics/business_info';
+  const API_Route_Profile = "metrics/business_info";
   const layoutFields = Register.useState((s) => s.layoutFields.financials);
   const business_info_res = Register.useState((s) => s.business_info_res);
   useEffect(() => {
@@ -24,12 +24,15 @@ const financial = () => {
             ? Object.keys(business_info_res).map((api_res_item, index) => {
                 return layoutFields.map((layout_item) => {
                   if (
-                    (typeof business_info_res[api_res_item] == 'string' ||
-                      typeof business_info_res[api_res_item] == 'number') &&
+                    (typeof business_info_res[api_res_item] == "string" ||
+                      typeof business_info_res[api_res_item] == "number") &&
                     layout_item[api_res_item] != undefined
                   ) {
                     return (
-                      <div className="item-div overflow-hidden hover:overflow-clip whitespace-nowrap hover:whitespace-normal hover:break-all item-div bg-grey1-1400 rounded px-5 py-8 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:bg-grey1-1400 hover:text-grey1-100 hover:border-4 duration-300">
+                      <div
+                        keys={index}
+                        className="item-div overflow-hidden hover:overflow-clip whitespace-nowrap hover:whitespace-normal hover:break-all item-div bg-grey1-1400 rounded px-5 py-8 transition ease-in-out delay-50 hover:-translate-y-1 hover:scale-110 hover:bg-grey1-1400 hover:text-grey1-100 duration-300"
+                      >
                         <div>{layout_item[api_res_item]}</div>
                         <div className="item-text">
                           {business_info_res[api_res_item]}

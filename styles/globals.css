@@ -10,13 +10,9 @@ body {
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
 .item-text {
-  font-size: 3rem;
+  font-size: 1.75rem;
+  font-weight: 100;
   line-height: 1;
-  font-weight: 800;
-  -webkit-transition: all 0.5s;
-  -moz-transition: all 0.5s;
-  -o-transition: all 0.5s;
-  transition: all 0.5s;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -26,5 +22,4 @@ body {
   font-weight: 100;
   white-space: normal;
   text-overflow: clip;
-  transition: font-size margin-right 0.5s ease-in-out 0.5s;
 }
