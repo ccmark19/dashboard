@@ -3,6 +3,7 @@ import {Store} from 'pullstate';
 export const Register = new Store({
   // api call results
   business_info_res: null,
+  chart: null,
 
   // layout fields
   layoutFields: {
@@ -24,7 +25,7 @@ export const Register = new Store({
       // 'display_gift_card',
     ],
     activity: [],
-    financials: [
+    financial: [
       {shopping_credits: 'Shopping Credits'},
       {fashion_shopping_credits: 'Fashion Shopping Credits'},
       {is_commission_qualified: 'Commission Qualified'},
@@ -35,9 +36,9 @@ export const Register = new Store({
       {opulence_points: 'Opulence Points'},
       {number_of_spin: 'Nmber Of Spin'},
     ],
-    downlines: ['volumes', 'downline'],
-    binary: ['username'],
-    map2d: ['per_country'],
+    downline: [{volumes: 'Volumes'}, {downline: 'Downline'}],
+    binary: [{username: 'Username'}],
+    map2d: [{per_country: 'Per Country'}],
   },
 });
 

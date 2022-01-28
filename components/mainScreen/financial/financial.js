@@ -1,10 +1,10 @@
-import {useState, useEffect} from 'react';
+import {useEffect} from 'react';
 import httpCalls from '../../commonFunction/httpCalls';
 import {Register} from '../../../src/store/Register';
 import ScreenItemTemplate from '../../commonFunction/template/screenItemTemplate';
-const profile = () => {
+const financial = () => {
   const API_Route_Profile = 'metrics/business_info';
-  const layoutFields = Register.useState((s) => s.layoutFields.profile);
+  const layoutFields = Register.useState((s) => s.layoutFields.financial);
   const business_info_res = Register.useState((s) => s.business_info_res);
   useEffect(() => {
     const fetchData = async () => {
@@ -26,4 +26,4 @@ const profile = () => {
   );
 };
 
-export default profile;
+export default financial;

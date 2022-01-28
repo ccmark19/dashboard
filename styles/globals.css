@@ -9,17 +9,10 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
 }
-.item-text {
-  font-size: 1.75rem;
-  font-weight: 100;
-  line-height: 1;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+.item-div:hover .item-title {
+  color: theme('colors.grey1.1200');
 }
+
 .item-div:hover .item-text {
-  font-size: 1.75rem;
-  font-weight: 100;
-  white-space: normal;
-  text-overflow: clip;
+  color: theme('colors.grey1.1300');
 }

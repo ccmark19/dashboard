@@ -1,14 +1,14 @@
-import { useState, useEffect, useRef } from "react";
-import { Line } from "react-chartjs-2";
-import { Register } from "../../../src/store/Register";
-import httpCalls from "../../commonFunction/httpCalls";
-import { Chart as ChartJS } from "chart.js/auto";
-import { Chart } from "react-chartjs-2";
+import {useState, useEffect, useRef} from 'react';
+import {Line} from 'react-chartjs-2';
+import httpCalls from '../../commonFunction/httpCalls';
+import Chart from 'chart.js/auto';
+import {CategoryScale} from 'chart.js';
+
 const login = () => {
+  Chart.register(CategoryScale);
   const [loginRes, setLoginRes] = useState([]);
-  const API_Route_Profile = "metrics";
-  const layoutFields = Register.useState((s) => s.layoutFields.profile);
-  const business_info_res = Register.useState((s) => s.business_info_res);
+  // api call parameter
+  const APICall_name = 'login';
   // raw api response
   const [data, setData] = useState(null);
   // for year dropdown selection
@@ -24,63 +24,37 @@ const login = () => {
   const [totalLogin, setTotalLogin] = useState(null);
   const yearlyRef = useRef();
   const monthStrArr = [
-    "Jan",
-    "Feb",
-    "Mar",
-    "Apr",
-    "May",
-    "Jun",
-    "Jul",
-    "Aug",
-    "Sep",
-    "Oct",
-    "Nov",
-    "Dec",
+    'Jan',
+    'Feb',
+    'Mar',
+    'Apr',
+    'May',
+    'Jun',
+    'Jul',
+    'Aug',
+    'Sep',
+    'Oct',
+    'Nov',
+    'Dec',
   ];
 
   //api call
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //       try {
-  //         const result = await APICall(APICall_name);
-  //         if (result) {
-  //           setLoginRes(result);
-  //         }
-  //         processData(result);
-  //         setData(result);
-  //       } catch (error) {
-  //         console.log(error);
-  //       }
-  //     };
-  //     fetchData();
-  //   }, [0]);
-
-  //   useEffect(() => {
-  //     const fetchData = async () => {
-  //       const api_result = await httpCalls(API_Route_Profile).then((res) => {
-  //         setLoginRes(res);
-  //         processData(res);
-  //         setData(res);
-  //         console.log(res);
-  // Register.update((s) => {
-  //   s.business_info_res = res.data;
-  // });
-  //       });
-  //     };
-  //     fetchData();
-  //   }, [0]);
-
   useEffect(() => {
     const fetchData = async () => {
-      const api_result = await httpCalls(API_Route_Profile);
-      console.log(api_result);
-      Register.update((s) => {
-        s.business_info_res = api_result.data;
-      });
+      try {
+        const result = await httpCalls(APICall_name);
+        if (result) {
+          setLoginRes(result);
+        }
+        processData(result);
+        setData(result);
+      } catch (error) {
+        console.log(error);
+      }
     };
+
     fetchData();
   }, [0]);
-
   const processData = (data) => {
     if (data != null && selectedYear != null) {
       setYearArr(Object.keys(data.data.info).sort().reverse());
@@ -95,7 +69,7 @@ const login = () => {
       }
       prepData = Object.values(selectYearData).filter(
         // prepData = Object.values(data.data.info[selectedYear]).filter(
-        (item) => item != null
+        (item) => item != null,
       );
       if (selectYearData) {
         if (prepData != null || prepData != undefined) {
@@ -116,7 +90,7 @@ const login = () => {
       setYearArr(Object.keys(data.data.info).sort().reverse());
       let prepData;
       prepData = Object.values(data.data.info[year]).filter(
-        (item) => item != null
+        (item) => item != null,
       );
       if (prepData != null || prepData != undefined) {
         prepData = prepData.map((item) => [item.month, item.count]);
@@ -137,58 +111,60 @@ const login = () => {
       labels: monthArr,
       datasets: [
         {
-          label: "Login",
+          label: 'Login',
           data: countArr,
           fill: true,
-          backgroundColor: "#cce3db",
-          borderColor: "#329070",
+          backgroundColor: '#cce3db',
+          borderColor: '#329070',
         },
       ],
     });
   };
   return (
     <div>
-      <h5 style={{ fontWeight: "bold" }}>My lastest login activity</h5>
+      <h5 style={{fontWeight: 'bold'}}>My lastest login activity</h5>
       <p>
         <strong>My last login: </strong>
-        {lastActivity != null ? lastActivity : "No data"}
+        {lastActivity != null ? lastActivity : 'No data'}
       </p>
-      <div className="dropdown" style={{ height: "10%" }}>
-        <button
-          className="btn px-0 dropdown-toggle"
-          type="button"
-          name="yearlyDropdown"
-          id="yearlyDropdown"
-          ref={yearlyRef}
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          {selectedYear}
-        </button>
-        <ul className="dropdown-menu" aria-labelledby="yearlyDropdown">
-          {yearArr
-            ? yearArr.map((item, index) => {
-                return (
-                  <li key={index}>
-                    <a
-                      className={
-                        item == selectedYear
-                          ? "dropdown-item active"
-                          : "dropdown-item"
-                      }
-                      onClick={() => {
-                        diffYearData(item);
-                      }}
-                    >
-                      {item}
-                    </a>
-                  </li>
-                );
-              })
-            : null}
-        </ul>
+      <div className="dropdown" style={{height: '10%'}}>
+        <div className="dropdown dropdown-right">
+          <div
+            className="m-1 btn bg-green1-500"
+            tabindex="0"
+            name="yearlyDropdown"
+            id="yearlyDropdown"
+            ref={yearlyRef}
+            data-bs-toggle="dropdown"
+            aria-expanded="false">
+            {selectedYear}
+          </div>
+          <ul
+            tabindex="0"
+            className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
+            {yearArr
+              ? yearArr.map((item, index) => {
+                  return (
+                    <li key={index}>
+                      <a
+                        className={
+                          item == selectedYear
+                            ? 'dropdown-item active'
+                            : 'dropdown-item'
+                        }
+                        onClick={() => {
+                          diffYearData(item);
+                        }}>
+                        {item}
+                      </a>
+                    </li>
+                  );
+                })
+              : null}
+          </ul>
+        </div>
       </div>
-      <p>Total views: {totalLogin != null ? totalLogin : "No data"} </p>
+      <p>Total views: {totalLogin != null ? totalLogin : 'No data'} </p>
       <Line
         data={
           state != null
@@ -197,11 +173,12 @@ const login = () => {
                 labels: monthArr,
                 datasets: [
                   {
-                    label: "Login",
+                    label: 'Login',
                     data: null,
                     fill: true,
-                    backgroundColor: "#cce3db",
-                    borderColor: "#329070",
+                    backgroundColor: '#cce3db',
+                    borderColor: '#329070',
+                    tension: 0.1,
                   },
                 ],
               }
@@ -209,7 +186,7 @@ const login = () => {
         options={{
           plugins: {
             legend: {
-              position: "right",
+              position: 'right',
               labels: {
                 boxWidth: 10,
                 boxHeight: 10,
