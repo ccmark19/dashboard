@@ -10,6 +10,7 @@ import Login from '../components/mainScreen/activity/login';
 import Order from '../components/mainScreen/activity/order';
 import Launch from '../components/mainScreen/activity/launch';
 import {data} from 'autoprefixer';
+import Head from 'next/head';
 
 export default function Home() {
   const [selectedScreen, setSelectedScreen] = useState('Profile');
@@ -28,9 +29,13 @@ export default function Home() {
   const [showSidebar, setShowSidebar] = useState(false);
   return (
     <div className="flex">
+      <Head>
+        <title>PPC</title>
+        <meta name="viewport" content="initial-scale=1.0, width=device-width" />
+      </Head>
       <aside
         className={`h-screen showSidebar transition ease-in-out delay-150 ${
-          showSidebar ? 'w-[20rem]' : null
+          showSidebar && selectedScreen != 'Map' ? 'w-[20rem]' : null
         }`}>
         <Sidebar
           allScreens={allScreens}

@@ -113,13 +113,58 @@ const sidebar = ({
         />
       </svg>
     ),
+    Login: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1"
+        />
+      </svg>
+    ),
+    Launch: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+        />
+      </svg>
+    ),
+    Order: (
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        className="h-6 w-6"
+        fill="none"
+        viewBox="0 0 24 24"
+        stroke="currentColor">
+        <path
+          strokeLinecap="round"
+          strokeLinejoin="round"
+          strokeWidth={2}
+          d="M16 11V7a4 4 0 00-8 0v4M5 9h14l1 12H4L5 9z"
+        />
+      </svg>
+    ),
   };
 
   return (
     <div className="h-full bg-grey1-1400" style={{width: 'inherit'}}>
       {showSidebar ? (
         <button
-          className="bg-purple1-700 text-grey1-100 rounded-lg flex text-4xl items-center cursor-pointer fixed left-[1.5em] top-6 z-50"
+          className="transition ease-in-out hover:scale-110 duration-300 opacity-25 hover:opacity-100 bg-purple1-700 text-grey1-100 rounded-lg flex text-4xl items-center cursor-pointer fixed left-[1.5em] top-6 z-50"
           onClick={() => setShowSidebar(!showSidebar)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -139,7 +184,7 @@ const sidebar = ({
         <svg
           onClick={() => setShowSidebar(!showSidebar)}
           xmlns="http://www.w3.org/2000/svg"
-          className="bg-purple1-700 text-grey1-100 rounded-lg h-16 w-16 fixed z-30 flex items-center cursor-pointer left-[3.35em] top-6"
+          className="transition ease-in-out hover:scale-110 duration-300 opacity-25 hover:opacity-100 bg-purple1-700 text-grey1-100 rounded-lg h-16 w-16 fixed z-30 flex items-center cursor-pointer left-[3.35em] top-6"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor">
@@ -168,21 +213,40 @@ const sidebar = ({
                   type="button"
                   className={`${
                     tempValue
-                      ? 'hover:bg-blue1-100 p-3 rounded-md text-xl font-semibold text-white transition ease-in-out hover:text-grey1-1400 hover:-translate-y-1 duration-300'
-                      : 'dropdown dropdown-end hover:bg-grey1-1400 hover:text-grey1-1400 p-0 '
+                      ? 'p-3 rounded-md text-xl font-semibold text-white transition'
+                      : 'dropdown dropdown-end p-0 '
                   }`}
-                  onClick={() => sideBarButtonClick(tempKey)}>
+                  // onClick={() => sideBarButtonClick(tempKey)}
+                  // onClick={() => console.log('tempValue->', event.target)}
+                >
                   {typeof tempValue == 'object' ? (
                     <>
-                      <ul className="menu">
+                      <ul className="sub-menu">
                         <li>
-                          <a>{tempKey}</a>
-                          <ul className="menu invisible">
+                          <p className="p-0 flex unclickbale">
+                            <span className="mr-3">{icons[tempKey]}</span>
+                            {tempKey}
+                          </p>
+                          <ul className="menu mt-2">
                             {Object.values(tempValue).map((subItem, index) => {
                               let subItemKey = Object.keys(subItem)[0];
                               return (
-                                <li key={index}>
-                                  <a className="inline-flex items-center">
+                                <li
+                                  key={index}
+                                  className="pl-3"
+                                  id={subItemKey}>
+                                  <a
+                                    className="inline-flex items-center"
+                                    onClick={(event) => {
+                                      sideBarButtonClick(event.target.id);
+                                    }}
+                                    // onClick={(event) =>
+                                    //   console.log(
+                                    //     'subItemKey->',
+                                    //     event.target.id,
+                                    //   )
+                                    // }
+                                  >
                                     <span className="mr-3">
                                       {icons[subItemKey]}
                                     </span>
@@ -196,7 +260,16 @@ const sidebar = ({
                       </ul>
                     </>
                   ) : (
-                    <a className="inline-flex items-center" key={index}>
+                    <a
+                      className="inline-flex items-center"
+                      key={index}
+                      onClick={(event) => {
+                        sideBarButtonClick(event.target.id);
+                      }}
+                      // onClick={(event) =>
+                      //   console.log('tempKey->', event.target.id)
+                      // }
+                      id={tempKey}>
                       <span className="mr-3">{icons[tempKey]}</span>
                       {tempKey}
                     </a>

@@ -209,7 +209,7 @@ const launch = () => {
         <div className="dropdown dropdown-right">
           <div
             className="m-1 btn bg-green1-500"
-            tabindex="0"
+            tabIndex="0"
             name="yearlyDropdown"
             id="yearlyDropdown"
             ref={yearlyRef}
@@ -218,7 +218,7 @@ const launch = () => {
             {selectedYear}
           </div>
           <ul
-            tabindex="0"
+            tabIndex="0"
             className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52">
             {yearArr
               ? yearArr.map((item, index) => {
