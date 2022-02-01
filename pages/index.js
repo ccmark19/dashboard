@@ -63,7 +63,7 @@ export default function Home() {
               </div>
             );
           } else if (Data == undefined) {
-            // if user click on sub menu item
+            // if user click on sub menu items
             let obj = Object.entries(item)[0].flat();
             if (obj.length > 2) {
               return obj.map((subMenuItem, index) => {
