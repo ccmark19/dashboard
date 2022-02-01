@@ -226,7 +226,7 @@ const sidebar = ({
                             <span className="mr-3">{icons[tempKey]}</span>
                             {tempKey}
                           </p>
-                          <ul className="menu mt-2">
+                          <ul className="sub-menu-content menu mt-2">
                             {Object.values(tempValue).map((subItem, index) => {
                               let subItemKey = Object.keys(subItem)[0];
                               return (
