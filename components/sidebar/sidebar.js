@@ -217,7 +217,6 @@ const sidebar = ({
                       : 'dropdown dropdown-end p-0 '
                   }`}
                   // onClick={() => sideBarButtonClick(tempKey)}
-                  // onClick={() => console.log('tempValue->', event.target)}
                 >
                   {typeof tempValue == 'object' ? (
                     <>
@@ -237,16 +236,11 @@ const sidebar = ({
                                   id={subItemKey}>
                                   <a
                                     className="inline-flex items-center"
+                                    key={index}
+                                    id={subItemKey}
                                     onClick={(event) => {
                                       sideBarButtonClick(event.target.id);
-                                    }}
-                                    // onClick={(event) =>
-                                    //   console.log(
-                                    //     'subItemKey->',
-                                    //     event.target.id,
-                                    //   )
-                                    // }
-                                  >
+                                    }}>
                                     <span className="mr-3">
                                       {icons[subItemKey]}
                                     </span>
@@ -266,9 +260,6 @@ const sidebar = ({
                       onClick={(event) => {
                         sideBarButtonClick(event.target.id);
                       }}
-                      // onClick={(event) =>
-                      //   console.log('tempKey->', event.target.id)
-                      // }
                       id={tempKey}>
                       <span className="mr-3">{icons[tempKey]}</span>
                       {tempKey}

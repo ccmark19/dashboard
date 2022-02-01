@@ -9,7 +9,7 @@ import Binary from '../components/mainScreen/binary/binary';
 import Login from '../components/mainScreen/activity/login';
 import Order from '../components/mainScreen/activity/order';
 import Launch from '../components/mainScreen/activity/launch';
-import {data} from 'autoprefixer';
+import Test from '../components/mainScreen/activity/test';
 import Head from 'next/head';
 
 export default function Home() {
@@ -18,7 +18,12 @@ export default function Home() {
     {Profile: Profile},
     {Activity: Activity},
     {
-      Activities: [{Login: Login}, {Order: Order}, {Launch: Launch}],
+      Activities: [
+        {Login: Login},
+        {Order: Order},
+        {Launch: Launch},
+        {Test: Test},
+      ],
     },
     {Financial: Financial},
     {Downline: Downline},
@@ -57,6 +62,21 @@ export default function Home() {
                 <Data />
               </div>
             );
+          } else if (Data == undefined) {
+            // if user click on sub menu item
+            let obj = Object.entries(item)[0].flat();
+            if (obj.length > 2) {
+              return obj.map((subMenuItem, index) => {
+                let SubData = subMenuItem[selectedScreen];
+                if (SubData) {
+                  return (
+                    <div key={index} className="h-full">
+                      <SubData />
+                    </div>
+                  );
+                }
+              });
+            }
           }
         })}
       </main>
