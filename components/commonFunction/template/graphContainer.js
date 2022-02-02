@@ -1,3 +1,4 @@
+import Loading from '../loading';
 const graphContainer = ({graph}) => {
   return (
     <div className="flex h-full items-center justify-center">

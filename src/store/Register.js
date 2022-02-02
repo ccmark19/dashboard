@@ -3,6 +3,7 @@ import {Store} from 'pullstate';
 export const Register = new Store({
   // api call results
   business_info_res: null,
+  organization_info_res: null,
   chart: null,
 
   // layout fields
@@ -36,7 +37,23 @@ export const Register = new Store({
       {opulence_points: 'Opulence Points'},
       {number_of_spin: 'Nmber Of Spin'},
     ],
-    downline: [{volumes: 'Volumes'}, {downline: 'Downline'}],
+    downline: [
+      {top_SB_purchases_last_30_days: 'top_SB_purchases_last_30_days'},
+      {top_launchers_last_30_days: 'top_launchers_last_30_days'},
+      {
+        top_product_purchases_last_30_days:
+          'top_product_purchases_last_30_days',
+      },
+      {total_members: 'Total Members'},
+      {total_members_active: 'Total Members Active'},
+      {total_members_left: 'Total Members Left'},
+      {total_members_left_active: 'Total Members Left Active'},
+      {total_members_met_35_las_30_days: 'Total Members Met 35 last 30 Days'},
+      {total_members_right: 'Total Members Right'},
+      {total_members_right_active: 'Total Members Right Active'},
+      {volumes: 'Volumes'},
+      {downline: 'Downline'},
+    ],
     binary: [{username: 'Username'}],
     map2d: [{per_country: 'Per Country'}],
   },

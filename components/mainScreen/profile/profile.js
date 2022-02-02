@@ -5,7 +5,7 @@ import ScreenItemTemplate from '../../commonFunction/template/screenItemTemplate
 const profile = () => {
   const API_Route_Profile = 'metrics/business_info';
   const layoutFields = Register.useState((s) => s.layoutFields.profile);
-  const business_info_res = Register.useState((s) => s.business_info_res);
+  const store_res = Register.useState((s) => s.business_info_res);
   useEffect(() => {
     const fetchData = async () => {
       const api_result = await httpCalls(API_Route_Profile);
@@ -18,10 +18,7 @@ const profile = () => {
 
   return (
     <>
-      <ScreenItemTemplate
-        layoutFields={layoutFields}
-        business_info_res={business_info_res}
-      />
+      <ScreenItemTemplate layoutFields={layoutFields} store_res={store_res} />
     </>
   );
 };

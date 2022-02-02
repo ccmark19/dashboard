@@ -6,7 +6,7 @@ import {
   useWindowHeight,
 } from '@react-hook/window-size';
 
-const shoppingCreditChart = ({business_info_res}) => {
+const shoppingCreditChart = ({store_res}) => {
   const [width, height] = useWindowSize();
 
   const prepSCU_SC = (SUC, SC) => {
@@ -20,14 +20,13 @@ const shoppingCreditChart = ({business_info_res}) => {
     {
       beforeDraw: function (chart) {
         if (
-          business_info_res.fashion_shopping_credits != null &&
-          business_info_res.shopping_credits != null
+          store_res.fashion_shopping_credits != null &&
+          store_res.shopping_credits != null
         ) {
           let sum;
           sum = (
-            parseFloat(
-              business_info_res.fashion_shopping_credits.replace(',', ''),
-            ) + parseFloat(business_info_res.shopping_credits.replace(',', ''))
+            parseFloat(store_res.fashion_shopping_credits.replace(',', '')) +
+            parseFloat(store_res.shopping_credits.replace(',', ''))
           ).toFixed(2);
 
           let width = chart.width,
@@ -68,26 +67,26 @@ const shoppingCreditChart = ({business_info_res}) => {
           <p>Shopping Credits</p>
         </div>
         <div>
-          {business_info_res.fashion_shopping_credits != null &&
-          business_info_res.shopping_credits != null ? (
+          {store_res.fashion_shopping_credits != null &&
+          store_res.shopping_credits != null ? (
             <Doughnut
               plugins={plugins_centerText}
               data={{
                 labels:
-                  business_info_res != null
+                  store_res != null
                     ? [
-                        `SCU ${business_info_res.shopping_credits}`,
-                        `SC ${business_info_res.fashion_shopping_credits}`,
+                        `SCU ${store_res.shopping_credits}`,
+                        `SC ${store_res.fashion_shopping_credits}`,
                       ]
                     : ['SCU', 'SC'],
                 datasets: [
                   {
                     label: 'Doughnut',
                     data:
-                      business_info_res != null
+                      store_res != null
                         ? prepSCU_SC(
-                            business_info_res.shopping_credits,
-                            business_info_res.fashion_shopping_credits,
+                            store_res.shopping_credits,
+                            store_res.fashion_shopping_credits,
                           )
                         : 0,
                     backgroundColor: ['#c06351', '#349072'],

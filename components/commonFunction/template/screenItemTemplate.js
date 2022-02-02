@@ -1,16 +1,16 @@
 import Loading from '../loading';
-const screenItemTemplate = ({layoutFields, business_info_res}) => {
+const screenItemTemplate = ({layoutFields, store_res}) => {
   return (
     <>
-      {business_info_res ? (
+      {store_res ? (
         <div className="pt-5">
           <div className="mx-5 p-5 rounded-lg grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 text-white gap-4">
-            {business_info_res != null
-              ? Object.keys(business_info_res).map((api_res_item, index) => {
+            {store_res != null
+              ? Object.keys(store_res).map((api_res_item, index) => {
                   return layoutFields.map((layout_item) => {
                     if (
-                      (typeof business_info_res[api_res_item] == 'string' ||
-                        typeof business_info_res[api_res_item] == 'number') &&
+                      (typeof store_res[api_res_item] == 'string' ||
+                        typeof store_res[api_res_item] == 'number') &&
                       layout_item[api_res_item] != undefined
                     ) {
                       return (
@@ -40,7 +40,7 @@ const screenItemTemplate = ({layoutFields, business_info_res}) => {
                             {layout_item[api_res_item]}
                           </div>
                           <div className="item-text text-4xl font-extralight text-grey1-300">
-                            {business_info_res[api_res_item]}
+                            {store_res[api_res_item]}
                           </div>
                         </div>
                       );
