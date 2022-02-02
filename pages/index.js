@@ -11,7 +11,7 @@ import Launch from '../components/mainScreen/activity/launch';
 import Head from 'next/head';
 
 export default function Home() {
-  const [selectedScreen, setSelectedScreen] = useState('Financial');
+  const [selectedScreen, setSelectedScreen] = useState('Downline');
   const allScreens = [
     {Profile: Profile},
     {
