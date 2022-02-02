@@ -1,7 +1,7 @@
 import {useRef, useEffect, useState, useCallback} from 'react';
 // import hexDataset from "../../src/datasets/ne_110m_admin_0_countries.geojson";
 
-const map = () => {
+const map3D = () => {
   let Globe = () => null;
   if (typeof window !== 'undefined') Globe = require('react-globe.gl').default;
 
@@ -37,4 +37,4 @@ const map = () => {
   );
 };
 
-export default map;
+export default map3D;

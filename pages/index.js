@@ -1,6 +1,7 @@
 import {useState} from 'react';
 import Sidebar from '../components/sidebar/sidebar';
-import Map from '../components/mainScreen/map/map';
+import mapTwoD from '../components/mainScreen/map/mapTwoD';
+import Map3D from '../components/mainScreen/map/map3D';
 import Profile from '../components/mainScreen/profile/profile';
 import Financial from '../components/mainScreen/financial/financial';
 import Downline from '../components/mainScreen/downline/downline';
@@ -11,7 +12,7 @@ import Launch from '../components/mainScreen/activity/launch';
 import Head from 'next/head';
 
 export default function Home() {
-  const [selectedScreen, setSelectedScreen] = useState('Downline');
+  const [selectedScreen, setSelectedScreen] = useState('Profile');
   const allScreens = [
     {Profile: Profile},
     {
@@ -20,7 +21,8 @@ export default function Home() {
     {Financial: Financial},
     {Downline: Downline},
     {Binary: Binary},
-    {Map: Map},
+    {mapTwoD: mapTwoD},
+    {Map3D: Map3D},
   ];
 
   const [showSidebar, setShowSidebar] = useState(false);

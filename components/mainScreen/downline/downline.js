@@ -34,8 +34,13 @@ const downline = () => {
   return (
     <>
       <ScreenItemTemplate layoutFields={layoutFields} store_res={store_res} />
-      {store_res_2 ? <VolumesTbl store_res={store_res_2} /> : null}
-      {store_res_2 ? <DownlineTbl store_res={store_res_2} /> : null}
+      {store_res_2 ? (
+        <div>
+          <VolumesTbl store_res={store_res_2} />
+          <div className="mb-5"></div>
+          <DownlineTbl store_res={store_res_2} />
+        </div>
+      ) : null}
     </>
   );
 };

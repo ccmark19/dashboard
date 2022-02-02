@@ -9,8 +9,8 @@ const downlineTbl = ({store_res}) => {
   }
 
   return (
-    <div className="mx-5 p-5 rounded-lg grid grid-cols-1 2xl:grid-cols-4 xl:grid-cols-3 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 text-white gap-4">
-      <div className="container flex justify-center mx-auto text-grey1-1000">
+    <>
+      <div className="flex mx-5 px-5 text-grey1-1000">
         <div className="flex flex-col">
           <div className="w-full">
             <div className="border border-grey1-600">
@@ -65,7 +65,7 @@ const downlineTbl = ({store_res}) => {
           </div>
         </div>
       </div>
-    </div>
+    </>
   );
 };
 
