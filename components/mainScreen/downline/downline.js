@@ -34,9 +34,8 @@ const downline = () => {
   return (
     <>
       <ScreenItemTemplate layoutFields={layoutFields} store_res={store_res} />
-      <VolumesTbl store_res={store_res_2} />
-      {/* <SmallChartContainer chart={<DownlineTbl store_res={store_res_2} />} /> */}
-      {/* <DownlineTbl store_res={store_res_2} /> */}
+      {store_res_2 ? <VolumesTbl store_res={store_res_2} /> : null}
+      {store_res_2 ? <DownlineTbl store_res={store_res_2} /> : null}
     </>
   );
 };
