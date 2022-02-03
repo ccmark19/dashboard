@@ -2,7 +2,7 @@ import React, {useEffect, useLayoutEffect} from 'react';
 import httpCalls from '../../commonFunction/httpCalls';
 import {Register} from '../../../src/store/Register';
 // import hexDataset from "../../src/datasets/ne_110m_admin_0_countries.geojson";
-import MapPie from './map2D/mapPie';
+// import MapPie from './map2D/mapPie';
 
 const mapTwoD = () => {
   const API_Route_Profile = 'metrics/business_info';
@@ -18,11 +18,7 @@ const mapTwoD = () => {
     fetchData();
   }, [0]);
 
-  return (
-    <div>
-      <MapPie businessInfo={store_res} />;
-    </div>
-  );
+  return <div>{/* <MapPie businessInfo={store_res} />; */}</div>;
 };
 
 export default mapTwoD;
