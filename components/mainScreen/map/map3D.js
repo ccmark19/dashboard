@@ -3,6 +3,21 @@ import countryCodeArr from '../../../src/countrycode-latlong.json';
 // import hexDataset from "../../src/datasets/ne_110m_admin_0_countries.geojson";
 
 const map3D = () => {
+
+
+  // const API_Route_Profile = 'helper/address_shipping/profile';
+  // // const layoutFields = Register.useState((s) => s.layoutFields.financial);
+  // const store_res = Register.useState((s) => s.geo_info_res);
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     const api_result = await httpCalls(API_Route_Profile);
+  //     Register.update((s) => {
+  //       s.geo_info_res = api_result.data;
+  //     });
+  //   };
+  //   fetchData();
+  // }, [0]);
+  // http://192.168.75.204:8001/api/helper/address_shipping/profile
   let Globe = () => null;
   useEffect(() => {
     // Auto-rotate
