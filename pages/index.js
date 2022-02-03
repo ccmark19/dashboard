@@ -12,7 +12,7 @@ import Launch from '../components/mainScreen/activity/launch';
 import Head from 'next/head';
 
 export default function Home() {
-  const [selectedScreen, setSelectedScreen] = useState('Profile');
+  const [selectedScreen, setSelectedScreen] = useState('Map3D');
   const allScreens = [
     {Profile: Profile},
     {
