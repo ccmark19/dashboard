@@ -53,15 +53,24 @@ const map3D = () => {
     <Globe
       ref={globeEl}
       hexPolygonsData={countries.features}
-      hexPolygonColor={() => `#${Math.round(Math.random() * Math.pow(2, 24)).toString(16).padStart(6, '0')}`}
+      // hexPolygonColor={() => `#${Math.round(Math.random() * Math.pow(2, 24)).toString(16).padStart(6, '0')}`}
+      hexPolygonColor={()=>"#3d276b"}
       hexPolygonLabel={({ properties: d }) => `
         <b>${d.ADMIN} (${d.ISO_A2})</b> <br />
         Population: <i>${d.POP_EST}</i>
       `}
-      globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
-      backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
+      hexPolygonMargin={0.7}
+      showAtmosphere={true}      
+      atmosphereColor={"#3E62AB"}
+      atmosphereAltitude={"0.20"}
+      // globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
+      // backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
       // arcsData={arcsData}
       pointsData={gData}
+      ringsData={gData}
+      ringPropagationSpeed={100}
+      ringRepeatPeriod={0}
+      globeMaterial={()=>{new THREE.Color( 'red' )}}
       arcColor={'color'}
       arcDashGap={2}
       arcStroke={0.5}
