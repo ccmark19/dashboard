@@ -16,7 +16,7 @@ const map3D = () => {
       // Register.update((s) => {
       //   s.geo_info_res = api_result.data;
       // });
-      console.log( api_result);
+      console.log('api call->',api_result);
     };
     fetchData();
   }, [0]);

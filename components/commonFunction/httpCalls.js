@@ -25,7 +25,6 @@ const httpCalls = async (query_type) => {
       method: 'post',
       url: API,
       data: formdata,
-      config,
       headers: {
         'Content-Type': `multipart/form-data`,
       },
