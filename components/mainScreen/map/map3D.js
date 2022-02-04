@@ -1,23 +1,28 @@
 import {useRef, useEffect, useState, useCallback} from 'react';
 import countryCodeArr from '../../../src/countrycode-latlong.json';
+import {Register} from '../../../src/store/Register';
+import httpCalls from '../../commonFunction/httpCalls';
 // import hexDataset from "../../src/datasets/ne_110m_admin_0_countries.geojson";
 
 const map3D = () => {
 
 
-  // const API_Route_Profile = 'helper/address_shipping/profile';
-  // // const layoutFields = Register.useState((s) => s.layoutFields.financial);
-  // const store_res = Register.useState((s) => s.geo_info_res);
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const api_result = await httpCalls(API_Route_Profile);
-  //     Register.update((s) => {
-  //       s.geo_info_res = api_result.data;
-  //     });
-  //   };
-  //   fetchData();
-  // }, [0]);
-  // http://192.168.75.204:8001/api/helper/address_shipping/profile
+  const API_Route_Profile = 'helper/address_shipping/profile';
+  // const layoutFields = Register.useState((s) => s.layoutFields.financial);
+  const store_res = Register.useState((s) => s.geo_info_res);
+  useEffect(() => {
+    const fetchData = async () => {
+      const api_result = await httpCalls(API_Route_Profile);
+      // Register.update((s) => {
+      //   s.geo_info_res = api_result.data;
+      // });
+      console.log( api_result);
+    };
+    fetchData();
+  }, [0]);
+
+
+
   let Globe = () => null;
   useEffect(() => {
     // Auto-rotate
@@ -37,7 +42,6 @@ const map3D = () => {
     endLng: (Math.random() - 0.5) * 360,
     color: '#d74aab',
   }));
-  console.log(countryCodeArr);
 
   const gData = Object.keys(countryCodeArr).map((item, key) => ({
     lat: countryCodeArr[item].lat,

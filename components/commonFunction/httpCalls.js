@@ -3,31 +3,11 @@ import APIPrepCredential from './APIPrepCredential';
 const httpCalls = async (query_type) => {
   let API_params = APIPrepCredential();
   let api_suffix;
-  let percentage = 0;
-  switch (query_type) {
-    case 'login':
-    case 'orders':
-    case 'launch':
-      api_suffix = 'metrics';
-      break;
-    case 'metrics/business_info':
-      api_suffix = 'metrics/business_info';
-      break;
-    case 'metrics/map_info':
-      api_suffix = 'metrics/map_info';
-      break;
-    case 'metrics/get_pending_commissions':
-      api_suffix = 'metrics/get_pending_commissions';
-      break;
-    case 'metrics/get_organization_info':
-      api_suffix = 'metrics/get_organization_info';
-      break;
-    case 'UserCommissionQualified':
-      api_suffix = 'UserCommissionQualified';
-      break;
-    default:
-      api_suffix = null;
-      break;
+  const metricsArr = ['login','orders','launch'];
+  if(metricsArr.includes(query_type)){
+    api_suffix = 'metrics';
+  } else{
+    api_suffix = query_type;
   }
   const API = API_params.ipadress + api_suffix;
   const formdata = new FormData();
@@ -41,13 +21,6 @@ const httpCalls = async (query_type) => {
   }
   formdata.append('query_type', query_type);
   try {
-    const config = {
-      onUploadProgress: (progressEvent) => {
-        const {loaded, total} = progressEvent;
-        percent = Math.floor((loaded * 100) / total);
-        console.log(`${loaded}kb of ${total}kb | ${percent}%`); // just to see whats happening in the console
-      },
-    };
     const response = await axios({
       method: 'post',
       url: API,

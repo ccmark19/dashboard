@@ -5,6 +5,7 @@ import ScreenItemTemplate from '../../commonFunction/template/screenItemTemplate
 import DownlineTbl from './downlineTbl';
 import VolumesTbl from './volumesTbl';
 import SmallChartContainer from '../../commonFunction/template/smallChartContainer';
+import Loading from '../../commonFunction/loading';
 
 const downline = () => {
   const API_Route_Profile = 'metrics/get_organization_info';
@@ -32,15 +33,19 @@ const downline = () => {
   }, [0]);
 
   return (
-    <>
-      <ScreenItemTemplate layoutFields={layoutFields} store_res={store_res} />
-      {store_res_2 ? (
+    <>      
+      {store_res_2 && store_res? (
+        <>
+        <div>
+          <ScreenItemTemplate layoutFields={layoutFields} store_res={store_res} />
+        </div>
         <div>
           <VolumesTbl store_res={store_res_2} />
           <div className="mb-5"></div>
           <DownlineTbl store_res={store_res_2} />
         </div>
-      ) : null}
+        </>
+      ) : <Loading />}
     </>
   );
 };
