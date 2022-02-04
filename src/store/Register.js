@@ -5,6 +5,7 @@ export const Register = new Store({
   business_info_res: null,
   organization_info_res: null,
   geo_info_res: null,
+  geo_info_user_country: null,
   chart: null,
 
   // layout fields
