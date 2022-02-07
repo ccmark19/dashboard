@@ -6,6 +6,7 @@ export const Register = new Store({
   organization_info_res: null,
   geo_info_res: null,
   geo_info_user_country: null,
+  commission_qualified: null,
   chart: null,
 
   // layout fields
@@ -56,7 +57,23 @@ export const Register = new Store({
       {volumes: 'Volumes'},
       {downline: 'Downline'},
     ],
-    binary: [{username: 'Username'}],
+    binary: [
+      {username: 'Username'},
+      {binary: 'Binary Commissions'},
+      {whole_sale: 'Wholesale Profit'},
+      {retail: 'Retail Commissions'},
+      {personal_team_volume: 'Personal Team Volume'},
+      {
+        top_product_purchases_last_30_days:
+          'Top Product Purchases Last 30 Days',
+      },
+      {
+        top_SB_purchases_last_30_days: 'Top SB Purchases Last 30 Days',
+      },
+      {
+        top_launchers_last_30_days: 'Top Launchers Last 30 Days',
+      },
+    ],
     map2d: [{per_country: 'Per Country'}],
   },
 });

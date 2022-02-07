@@ -12,7 +12,7 @@ import Launch from '../components/mainScreen/activity/launch';
 import Head from 'next/head';
 
 export default function Home() {
-  const [selectedScreen, setSelectedScreen] = useState('Map3D');
+  const [selectedScreen, setSelectedScreen] = useState('Binary');
   const allScreens = [
     {Profile: Profile},
     {
@@ -21,7 +21,7 @@ export default function Home() {
     {Financial: Financial},
     {Downline: Downline},
     {Binary: Binary},
-    {mapTwoD: mapTwoD},
+    // {mapTwoD: mapTwoD},
     {Map3D: Map3D},
   ];
 

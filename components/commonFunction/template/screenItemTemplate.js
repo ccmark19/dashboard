@@ -39,7 +39,8 @@ const screenItemTemplate = ({layoutFields, store_res}) => {
                           <div className="item-title text-grey1-1000">
                             {layout_item[api_res_item]}
                           </div>
-                          <div className="item-text text-4xl font-extralight text-grey1-300">
+                          <div
+                            className={`item-text font-extralight  text-4xl text-grey1-300`}>
                             {store_res[api_res_item]}
                           </div>
                         </div>

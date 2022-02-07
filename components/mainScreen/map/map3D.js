@@ -92,11 +92,8 @@ const map3D = () => {
         arcDashGap={2}
         arcStroke={0.5}
         arcDashAnimateTime={() => Math.random() * 8000 + 500}
-        // onPointHover={(point) =>
-        //   (globeEl.current.controls().autoRotate = !point)
-        // }
-        onHexPolygonHover={(hex) =>
-          (globeEl.current.controls().autoRotate = !hex)
+        onPointHover={(point) =>
+          (globeEl.current.controls().autoRotate = !point)
         }
       />
     </div>
