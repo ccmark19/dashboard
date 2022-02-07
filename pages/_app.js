@@ -15,7 +15,7 @@ function MyApp({Component, pageProps}) {
       <script src="https://cdn.amcharts.com/lib/4/maps.js"></script>
       <script src="https://cdn.amcharts.com/lib/4/geodata/worldHigh.js"></script>
       <script src="https://cdn.amcharts.com/lib/4/themes/dark.js"></script>
-      <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script> */}
+      <script src="https://cdn.amcharts.com/lib/4/themes/animated.js"></script> */}            
       <Component {...pageProps} />
     </div>
   );
