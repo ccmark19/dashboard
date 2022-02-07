@@ -2,6 +2,7 @@ import {useEffect} from 'react';
 import httpCalls from '../../commonFunction/httpCalls';
 import {Register} from '../../../src/store/Register';
 import ScreenItemTemplate from '../../commonFunction/template/screenItemTemplate';
+import BinaryTables from './binaryTables';
 const binary = () => {
   const API_Route_OrganizationInfo = 'metrics/get_organization_info';
   const API_Route_CommissionQualified = 'metrics/get_pending_commissions';
@@ -46,24 +47,24 @@ const binary = () => {
   let end_subStr = ']';
 
   if (store_res_organization_info !== null) {
-    if (
-      store_res_organization_info.top_product_purchases_last_30_days != null
-    ) {
-      store_res_organization_info.top_product_purchases_last_30_days.forEach(
-        (element) => {
-          const name = element.substring(
-            name_subStr.length,
-            element.indexOf(end_subStr),
-          );
-          const user_name = element.substring(
-            element.indexOf(user_name_subStr) + user_name_subStr.length,
-            element.length - 1,
-          );
-          name_arr = [...name_arr, name];
-          user_name_arr = [...user_name_arr, user_name];
-        },
-      );
-    }
+    // if (
+    //   store_res_organization_info.top_product_purchases_last_30_days != null
+    // ) {
+    //   store_res_organization_info.top_product_purchases_last_30_days.forEach(
+    //     (element) => {
+    //       const name = element.substring(
+    //         name_subStr.length,
+    //         element.indexOf(end_subStr),
+    //       );
+    //       const user_name = element.substring(
+    //         element.indexOf(user_name_subStr) + user_name_subStr.length,
+    //         element.length - 1,
+    //       );
+    //       name_arr = [...name_arr, name];
+    //       user_name_arr = [...user_name_arr, user_name];
+    //     },
+    //   );
+    // }
     if (store_res_organization_info.top_SB_purchases_last_30_days != null) {
       store_res_organization_info.top_SB_purchases_last_30_days.forEach(
         (element) => {
@@ -103,7 +104,10 @@ const binary = () => {
       <ScreenItemTemplate layoutFields={layoutFields} store_res={store_res} />
       {store_res_organization_info ? (
         <>
-          <div>
+          <BinaryTables
+            store_res={store_res.top_product_purchases_last_30_days}
+          />
+          {/* <div>
             <div className="table-auto">
               <div className="text-secondary">
                 <span>Top Product Purchases Last 30 Days</span>
@@ -159,7 +163,7 @@ const binary = () => {
                 </table>
               </div>
             </div>
-          </div>
+          </div> */}
           <div>
             <div>
               <div className="text-secondary">

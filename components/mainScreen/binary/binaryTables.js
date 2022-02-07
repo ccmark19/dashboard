@@ -1,4 +1,27 @@
 const binaryTables = ({store_res}) => {
+  let name_arr = [];
+  let user_name_arr = [];
+  let name_arr_sb = [];
+  let user_name_arr_sb = [];
+  let name_arr_launch = [];
+  let user_name_arr_launch = [];
+
+  let name_subStr = 'Name: [';
+  let user_name_subStr = ' Username:[';
+  let end_subStr = ']';
+  store_res.forEach((element) => {
+    const name = element.substring(
+      name_subStr.length,
+      element.indexOf(end_subStr),
+    );
+    const user_name = element.substring(
+      element.indexOf(user_name_subStr) + user_name_subStr.length,
+      element.length - 1,
+    );
+    name_arr = [...name_arr, name];
+    user_name_arr = [...user_name_arr, user_name];
+  });
+
   return (
     <div>
       <div className="table-auto">
