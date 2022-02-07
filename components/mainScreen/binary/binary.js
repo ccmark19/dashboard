@@ -103,35 +103,14 @@ const binary = () => {
       <ScreenItemTemplate layoutFields={layoutFields} store_res={store_res} />
       {store_res_organization_info ? (
         <>
-          <div id="row6_col1" className="col-md-6">
-            <div
-              id="top_product_purchases_last_30_days"
-              className="p-3 top_product_purchases_last_30_days business_info_children businessInfo_plain  "
-              style={{height: '37vh'}}>
-              <div
-                className="col-1 order-md-1 pb-3 align-items-center"
-                style={{height: '13%'}}>
-                <span style={{fontSize: '24px', color: '#008f11'}}>
-                  <i className="fas fa-level-up-alt"></i>
-                </span>
-              </div>
-              <div
-                className="col order-md-3 text-secondary"
-                style={{height: '10%'}}>
+          <div>
+            <div className="table-auto">
+              <div className="text-secondary">
                 <span>Top Product Purchases Last 30 Days</span>
               </div>
-              <div
-                className="col-10 order-md-2 text-left"
-                style={{
-                  textOverflow: 'clip',
-                  width: '90%',
-                  height: '80%',
-                  overflow: 'auto',
-                }}>
-                <table
-                  id="pad_tblVolumes"
-                  className="table table-striped table-hover">
-                  <thead className="thead-dark">
+              <div>
+                <table className="table-auto bg-orange">
+                  <thead>
                     <tr>
                       <th>#</th>
                       <th scope="col">Name</th>
@@ -181,35 +160,14 @@ const binary = () => {
               </div>
             </div>
           </div>
-          <div id="row6_col2" className="col-md-6">
-            <div
-              id="top_product_purchases_last_30_days"
-              className="p-3 top_product_purchases_last_30_days business_info_children businessInfo_plain  "
-              style={{height: '37vh'}}>
-              <div
-                className="col-1 order-md-1 pb-3 align-items-center"
-                style={{height: '13%'}}>
-                <span style={{fontSize: '24px', color: '#0073ff'}}>
-                  <i className="fas fa-level-up-alt"></i>
-                </span>
-              </div>
-              <div
-                className="col order-md-3 text-secondary"
-                style={{height: '10%'}}>
+          <div>
+            <div>
+              <div className="text-secondary">
                 <span>Top SB Purchases Last 30 Days</span>
               </div>
-              <div
-                className="col-10 order-md-2 text-left"
-                style={{
-                  textOverflow: 'clip',
-                  width: '90%',
-                  height: '80%',
-                  overflow: 'auto',
-                }}>
-                <table
-                  id="pad_tblVolumes"
-                  className="table table-striped table-hover">
-                  <thead className="thead-dark">
+              <div>
+                <table className="table-auto bg-orange">
+                  <thead>
                     <tr>
                       <th>#</th>
                       <th scope="col">Name</th>
@@ -259,35 +217,14 @@ const binary = () => {
               </div>
             </div>
           </div>
-          <div id="row6_col3" className="col-md-6">
-            <div
-              id="top_launchers_last_30_days"
-              className="p-3 top_launchers_last_30_days business_info_children businessInfo_plain  "
-              style={{height: '37vh'}}>
-              <div
-                className="col-1 order-md-1 pb-3 align-items-center"
-                style={{height: '13%'}}>
-                <span style={{fontSize: '24px', color: '#fd7e13'}}>
-                  <i className="fas fa-level-up-alt"></i>
-                </span>
-              </div>
-              <div
-                className="col order-md-3 text-secondary"
-                style={{height: '10%'}}>
+          <div>
+            <div>
+              <div className="text-secondary">
                 <span>Top Launchers Last 30 Days</span>
               </div>
-              <div
-                className="col-10 order-md-2 text-left"
-                style={{
-                  textOverflow: 'clip',
-                  width: '90%',
-                  height: '80%',
-                  overflow: 'auto',
-                }}>
-                <table
-                  id="pad_tblVolumes"
-                  className="table table-striped table-hover">
-                  <thead className="thead-dark">
+              <div>
+                <table className="table-auto bg-orange">
+                  <thead>
                     <tr>
                       <th>#</th>
                       <th scope="col">Name</th>
