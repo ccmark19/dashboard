@@ -22,7 +22,6 @@ div#__next > div {
 }
 
 .item-text {
-  line-height: 1;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;

@@ -7,6 +7,7 @@ export const Register = new Store({
   geo_info_res: null,
   geo_info_user_country: null,
   commission_qualified: null,
+  rawLaunch_data: null,
   chart: null,
 
   // layout fields
@@ -40,7 +41,7 @@ export const Register = new Store({
       {opulence_points: 'Opulence Points'},
       {number_of_spin: 'Nmber Of Spin'},
     ],
-    downline: [     
+    downline: [
       {total_members: 'Total Members'},
       {total_members_active: 'Total Members Active'},
       {total_members_left: 'Total Members Left'},
