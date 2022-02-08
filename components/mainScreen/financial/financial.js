@@ -4,13 +4,14 @@ import {Register} from '../../../src/store/Register';
 import ScreenItemTemplate from '../../commonFunction/template/screenItemTemplate';
 import ShoppingCreditChart from './shoppingCreditChart';
 import SmallChartContainer from '../../commonFunction/template/smallChartContainer';
+import Loading from '../../commonFunction/loading';
 const financial = () => {
-  const API_Route_Profile = 'metrics/business_info';
+  const API_Route_Business = 'metrics/business_info';
   const layoutFields = Register.useState((s) => s.layoutFields.financial);
-  const store_res = Register.useState((s) => s.business_info_res);
+  const store_res_business = Register.useState((s) => s.business_info_res);
   useEffect(() => {
     const fetchData = async () => {
-      const api_result = await httpCalls(API_Route_Profile);
+      const api_result = await httpCalls(API_Route_Business);
       Register.update((s) => {
         s.business_info_res = api_result.data;
       });
@@ -19,13 +20,15 @@ const financial = () => {
   }, [0]);
 
   return (
-    <>
-      <ScreenItemTemplate layoutFields={layoutFields} store_res={store_res} />
-      {store_res ? (
-        <SmallChartContainer
-          graph={<ShoppingCreditChart store_res={store_res} />}
-        />
-      ) : null}
+    <>      
+      {store_res_business ? (
+        <div>
+          <ScreenItemTemplate layoutFields={layoutFields} store_res={store_res_business} />
+          <SmallChartContainer
+            graph={<ShoppingCreditChart store_res={store_res_business} />}
+          />
+        </div>
+      ) : <Loading />}
     </>
   );
 };

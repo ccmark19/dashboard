@@ -1,10 +1,10 @@
-import Loading from '../loading';
 const screenItemTemplate = ({layoutFields, store_res}) => {
   return (
     <>
       {store_res ? (
         <div className="pt-5">
           <div className="mx-5 p-5 rounded-lg grid grid-cols-1 lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 text-white gap-4">
+          {/* <div className="mx-5 p-5 rounded-lg flex flex-wrap space-x-4"> */}
             {store_res != null
               ? Object.keys(store_res).map((api_res_item, index) => {
                   return layoutFields.map((layout_item) => {
@@ -16,7 +16,7 @@ const screenItemTemplate = ({layoutFields, store_res}) => {
                       return (
                         <div
                           keys={index}
-                          className="
+                          className="                        
                         item-div 
                         text-lg                        
                         bg-grey1-1400 
@@ -52,7 +52,7 @@ const screenItemTemplate = ({layoutFields, store_res}) => {
           </div>
         </div>
       ) : (
-        <Loading />
+        null
       )}
     </>
   );

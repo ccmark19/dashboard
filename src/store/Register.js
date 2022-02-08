@@ -40,13 +40,7 @@ export const Register = new Store({
       {opulence_points: 'Opulence Points'},
       {number_of_spin: 'Nmber Of Spin'},
     ],
-    downline: [
-      {top_SB_purchases_last_30_days: 'top_SB_purchases_last_30_days'},
-      {top_launchers_last_30_days: 'top_launchers_last_30_days'},
-      {
-        top_product_purchases_last_30_days:
-          'top_product_purchases_last_30_days',
-      },
+    downline: [     
       {total_members: 'Total Members'},
       {total_members_active: 'Total Members Active'},
       {total_members_left: 'Total Members Left'},
