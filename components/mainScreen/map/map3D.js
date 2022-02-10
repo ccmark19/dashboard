@@ -1,21 +1,21 @@
-import {useRef, useEffect, useState, useCallback} from 'react';
-import countryCodeArr from '../../../src/countrycode-latlong.json';
-import {Register} from '../../../src/store/Register';
-import httpCalls from '../../commonFunction/httpCalls';
-import hexDataset from '../../../src/ne_110m_admin_0_countries.json';
-import * as THREE from 'three';
+import { useRef, useEffect, useState, useCallback } from "react";
+import countryCodeArr from "../../../src/countrycode-latlong.json";
+import { Register } from "../../../src/store/Register";
+import httpCalls from "../../commonFunction/httpCalls";
+import hexDataset from "../../../src/ne_110m_admin_0_countries.json";
+import * as THREE from "three";
 
 const map3D = () => {
   let Globe = () => null;
-  if (typeof window !== 'undefined') Globe = require('react-globe.gl').default;
+  if (typeof window !== "undefined") Globe = require("react-globe.gl").default;
   let gData;
   let country_name_arr = [];
   const globeEl = useRef();
-  const API_Route_Profile = 'helper/address_shipping/profile';
-  const API_Route_BizInfo = 'metrics/business_info';
+  const API_Route_Profile = "helper/address_shipping/profile";
+  const API_Route_BizInfo = "metrics/business_info";
   // const store_res = Register.useState((s) => s.geo_info_res);
   const store_res_bizInfo = Register.useState((s) => s.business_info_res);
-  const [countries, setCountries] = useState({features: []});
+  const [countries, setCountries] = useState({ features: [] });
   useEffect(() => {
     const fetchData = async () => {
       // const api_result = await httpCalls(API_Route_Profile);
@@ -51,9 +51,9 @@ const map3D = () => {
   if (store_res_bizInfo != null) {
     let countryCodeArr_keys = Object.keys(countryCodeArr);
     let countryCodeArr_exist_keys = Object.keys(
-      store_res_bizInfo.per_country,
+      store_res_bizInfo.per_country
     ).filter((countryName) =>
-      countryCodeArr_keys.includes(countryName.toLocaleLowerCase()),
+      countryCodeArr_keys.includes(countryName.toLocaleLowerCase())
     );
 
     gData = countryCodeArr_exist_keys.map((item) => {
@@ -64,6 +64,8 @@ const map3D = () => {
     });
   }
 
+  // need to call the sockect to steam data in here
+
   return (
     <div>
       <Globe
@@ -72,23 +74,23 @@ const map3D = () => {
         hexPolygonColor={() =>
           `#${Math.round(Math.random() * Math.pow(2, 24))
             .toString(16)
-            .padStart(6, '0')}`
+            .padStart(6, "0")}`
         }
         // hexPolygonColor={() => 'rgba(43, 197, 218, 1)'}
-        hexPolygonLabel={({properties: d}) => `
+        hexPolygonLabel={({ properties: d }) => `
           <b>${d.ADMIN} (${d.ISO_A2})</b> <br />
           Population: <i>${d.POP_EST}</i>
         `}
         hexPolygonMargin={0.7}
         showAtmosphere={true}
-        atmosphereColor={'#3E62AB'}
+        atmosphereColor={"#3E62AB"}
         atmosphereAltitude={0.2}
         globeImageUrl="//unpkg.com/three-globe/example/img/earth-night.jpg"
         backgroundImageUrl="//unpkg.com/three-globe/example/img/night-sky.png"
         // arcsData={arcsData}
         pointsData={gData}
         ringsData={gData}
-        arcColor={'color'}
+        arcColor={"color"}
         arcDashGap={2}
         arcStroke={0.5}
         arcDashAnimateTime={() => Math.random() * 8000 + 500}
